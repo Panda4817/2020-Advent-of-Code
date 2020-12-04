@@ -2,7 +2,6 @@ import re
 
 def part1(data):
   lst = data.split("\n\n")
-  print(len(lst))
   have = ['byr', 'iyr', 'eyr', 'hgt', 'hcl', 'ecl', 'pid']
   count = 0
   for p in lst:

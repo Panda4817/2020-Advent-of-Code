@@ -1,5 +1,4 @@
 def part1(data):
-  __import__('time').sleep(1)
   lst = list(data.split("\n"))
   count = 0
   along = 3
@@ -13,7 +12,6 @@ def part1(data):
   return count
 
 def part2(data):
-  __import__('time').sleep(1)
   lst = list(data.split("\n"))
   increase_by = [1, 5, 7, 1]
   along = [1, 5, 7, 1]
