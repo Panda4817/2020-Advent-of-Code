@@ -10,8 +10,6 @@ def part1(data):
     if s[along] == '#':
       count += 1
     along += 3
-      
-
   return count
 
 def part2(data):
@@ -23,7 +21,7 @@ def part2(data):
   for a in range(len(along)):
     if a == 3:
       for r in range(2, len(lst)):
-        if r > 0 and r % 2 == 0:
+        if r % 2 == 0:
           s = lst[r]
           while(along[a] > len(s)-1):
             s += lst[r]
