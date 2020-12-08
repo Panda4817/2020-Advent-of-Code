@@ -52,7 +52,7 @@ def part2(data):
     
     if i[tryNum][0] == 'jmp':
       i[tryNum][0] = 'nop'
-    elif i[tryNum] == 'nop':
+    elif i[tryNum][0] == 'nop':
       i[tryNum][0] = 'jmp'
     else:
       tryNum += 1
