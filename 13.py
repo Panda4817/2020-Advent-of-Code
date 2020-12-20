@@ -26,35 +26,38 @@ def part1(data):
   return diff * current
 
 def part2(data):
+  # Using Chinese Remainder Theorem to solve this
   lst = data.split("\n")
   buses = [int(b) if b != 'x' else b for b in lst[1].split(",")]
   length = len(buses)
-  b = [i for i in range(1, length) if buses[i] != 'x']
+  
+  b = [i for i in range(0, length) if buses[i] != 'x']
   print(b)
-  n = [buses[j] for j in range(1, length) if buses[j] != 'x']
-  lg = len(n)
+  n = [buses[j] for j in range(0, length) if buses[j] != 'x']
   print(n)
+  lg = len(n)
   N_prod = prod(n)
-  print(N_prod)
-  N = [N_prod // k for k in n]
-  print(N)
-  moduli = []
+
+  N = [N_prod // mod for mod in n]
+
+
+  x = []
   for l in range(lg):
     z = N[l] % n[l]
-    x = 1
-    while (True):
-      temp = z * x
-      if temp % n[l] == 1:
-        moduli.append(x)
-        break
-      x += 1
-  print(moduli)
-  prod_up = [b[m]*N[m]*moduli[m] for m in range(lg)]
-  print(prod_up)
-  sum_up = sum(prod_up)
-  print(sum_up)
-  t = sum_up % N_prod
-  print(t % buses[0])
+    y = pow(z, -1, n[l])
+    x.append(y)
+    
+
+  
+  prod_up = [b[m] * N[m] * x[m] for m in range(lg)]
+  t = (sum(prod_up)) #% N_prod
+
+  for bus in n:
+    print(t % bus)
+
+  
+
+
   
   #found = False
   #t = buses[0]
