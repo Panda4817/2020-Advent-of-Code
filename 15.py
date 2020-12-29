@@ -9,6 +9,7 @@ def part1(data):
     turns[nums[i]].append(i + 1)
     last_number = nums[i]
   print(turns)
+  
   for i in range(length + 1, turn + 1):
     if len(turns[last_number]) == 1:
       turns[0].append(i)
@@ -20,8 +21,11 @@ def part1(data):
       else:
         turns[new_number] = []
         turns[new_number].append(i)
+      turns[new_number] = turns[new_number][-2:]
       last_number = new_number
-    print(last_number)
-  
-  print(turns)
+    if last_number != 0:
+      print(last_number, end=' ')
+    else:
+      print(last_number)
+        
   return last_number
